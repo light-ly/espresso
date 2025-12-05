@@ -13,6 +13,7 @@
 
 pcover make_sparse(pcover F, pcover D, pcover R) {
     cost_t cost, best_cost;
+    cost.total = 0;
 
     cover_cost(F, &best_cost);
 

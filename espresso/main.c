@@ -6,10 +6,12 @@ int main(int argc, char* argv[]) {
 
     /* the remaining arguments are argv[optind ... argc-1] */
     PLA = NIL(PLA_t);
-    if (read_pla(fopen(argv[1], "r"), &PLA) == EOF) {
+    FILE* input_fp = fopen(argv[1], "r");
+    if (read_pla(input_fp, &PLA) == EOF) {
         fprintf(stderr, "Unable to find PLA on stdin\n");
         exit(1);
     }
+    fclose(input_fp);
     printf("run espresso......\n");
     /*
      *  Now run espresso
